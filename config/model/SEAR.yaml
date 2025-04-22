@@ -1,0 +1,33 @@
+gpu_id: 0
+log_wandb: False
+
+# MODEL settings
+hidden_size: 64                 # (int) Number of features in the hidden state.
+num_layers: 2                   # (int) Number of GMamba layers.
+dropout_prob: 0.2               # (float) Dropout rate.
+loss_type: 'CE'                 # (str) Type of loss function. Range in ['BPR', 'CE'].
+d_state: 32                     # (int) SSM state expansion factor
+d_conv: 4                       # (int) Local convolution width
+expand: 2                       # (int) Block expansion factor
+agg_num_heads: 4                 # (int) number of heads in aggregation layer
+
+item_sem_embedding_model_path:  "/mnt/public/gw/LLM_model/all-mpnet-base-v2"
+k: 4               # the number of items for considering after a seq
+lambda: 2    # (float) Control the weight decay of index positions, the greater the lambda_weight, the more severe the weight decay
+
+# training settings
+epochs: 200
+train_batch_size: 2048
+learner: adamw
+learning_rate: 1e-3
+eval_step: 1
+stopping_step: 4
+weight_decay: 0
+#训练过程中每个正样本对应的负样本数量
+train_neg_sample_args: ~
+
+# evalution settings
+metrics: ['Hit', 'NDCG', 'MRR']
+#valid_metric: NDCG@10
+eval_batch_size: 4096
+topk: [10]

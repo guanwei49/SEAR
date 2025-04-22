@@ -1,0 +1,16 @@
+dataset: Amazon_Video_Games
+data_path: '/mnt/public/gw/RecLLM/dataset/'
+MAX_ITEM_LIST_LENGTH: 100        # window length
+field_separator: "\t"
+seq_separator: " "
+USER_ID_FIELD: user_id
+ITEM_ID_FIELD: item_id
+RATING_FIELD: rating
+TIME_FIELD: timestamp
+item_title: title
+load_col:
+    item: [item_id, title, categories, brand]
+    inter: [user_id, item_id, rating, timestamp]
+
+user_inter_num_interval: "[5,inf)"
+item_inter_num_interval: "[5,inf)"

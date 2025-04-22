@@ -1,0 +1,16 @@
+dataset: ml-1m
+data_path: '/mnt/public/gw/RecLLM/dataset/'
+MAX_ITEM_LIST_LENGTH: 100
+USER_ID_FIELD: user_id
+ITEM_ID_FIELD: item_id
+TIME_FIELD: timestamp
+RATING_FIELD: rating
+item_title: movie_title
+load_col:
+    user: [user_id, age, gender, occupation, zip_code]
+    item: [item_id, movie_title, release_year, genre]
+    inter: [user_id, item_id, rating, timestamp]
+
+user_inter_num_interval: "[5,inf)"
+item_inter_num_interval: "[5,inf)"
+filter_inter_by_user_or_item: True    # (bool) Whether or not to filter inter by user or item.
