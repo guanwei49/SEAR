@@ -77,7 +77,7 @@ pip install transformers==4.46.3
    │ │ ├── ...
 ```
 
-- Set the following variations in **config/data/beauty.yaml** 
+- Set the following variations in **config/data/~.yaml** 
 ```  
 data_path: # i.e.,  '/mnt/public/gw/RecLLM/dataset/'
 ```
