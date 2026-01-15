@@ -1,7 +1,7 @@
 # SEAR: LLM-Powered Sequential Recommendation via Fusion of Collaborative, Semantic, and Rating Information #
 
 
-Official Implementation of "SEAR: LLM-Powered Sequential Recommendation via Fusion of Collaborative, Semantic, and Rating Information"
+Implementation of "SEAR: LLM-Powered Sequential Recommendation via Fusion of Collaborative, Semantic, and Rating Information".
 ![architecture.png](architecture.png)
 
 ## Datasets
