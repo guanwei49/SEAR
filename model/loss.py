@@ -36,7 +36,11 @@ class KLDivergenceLoss(nn.Module):
         class_weights = mask.float() * position_weights  # 仅对有效类别赋权重
         class_weights = class_weights / class_weights.sum(1).unsqueeze(1)
         soft_probs = torch.zeros_like(positive_index)
-        soft_probs[torch.arange(batch_size).unsqueeze(1),targets] = class_weights
+        soft_probs.scatter_add_(
+            dim=1,
+            index=targets,
+            src=class_weights
+        )
 
         log_probs = F.log_softmax(logits, dim=-1)  # 计算 log_softmax
         loss = F.kl_div(log_probs, soft_probs, reduction='batchmean')  # 计算 KL 散度
