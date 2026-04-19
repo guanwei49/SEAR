@@ -1,7 +1,8 @@
 # SEAR: LLM-Powered Sequential Recommendation via Fusion of Collaborative, Semantic, and Rating Information #
 
 
-Official Implementation of "SEAR: LLM-Powered Sequential Recommendation via Fusion of Collaborative, Semantic, and Rating Information"
+Official Implementation of "[SEAR: LLM-Powered Sequential Recommendation via Fusion of Collaborative, Semantic, and Rating Information](https://dl.acm.org/doi/abs/10.1145/3774904.3792092)"
+
 ![architecture.png](architecture.png)
 
 ## Datasets
@@ -85,3 +86,17 @@ data_path: # i.e.,  '/mnt/public/gw/RecLLM/dataset/'
 
 ### 4. Train and test our proposed deep model.
 - Run ```python custom_trainer.py``` from the root directory.
+
+
+## BibTex Citation
+
+If you find this paper and repository useful, please cite our paper☺️.
+```
+@inproceedings{guan2026sear,
+  title={SEAR: LLM-Powered Sequential Recommendation via Fusion of Collaborative, Semantic, and Rating Information},
+  author={Guan, Wei and Cao, Jian and Cai, Qiqi and Gao, Jianqi and Cai, Jinyu and Ng, See-Kiong},
+  booktitle={Proceedings of the ACM Web Conference 2026},
+  pages={5731--5740},
+  year={2026}
+}
+```
