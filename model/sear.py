@@ -327,7 +327,7 @@ class SEAR(SequentialRecommender):
         item_seq_len = interaction[self.ITEM_SEQ_LEN]
         target_id_list = interaction['target_id_list']
         rating_seq = interaction[self.rating_list_field]
-
+        target_rating_list = interaction['target_rating_list']
 
         item_seq = item_seq[:, :item_seq_len.max()]
         rating_seq = rating_seq[:, :item_seq_len.max()]
@@ -344,7 +344,7 @@ class SEAR(SequentialRecommender):
 
         logits = self.item_decoder(user_embedding) # [B, n_items]
 
-        user_item_loss = self.user_item_loss_fct(logits, target_id_list)
+        user_item_loss = self.user_item_loss_fct(logits, target_id_list, target_rating_list)
 
         return user_item_loss
 
