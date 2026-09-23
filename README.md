@@ -85,7 +85,7 @@ data_path: # i.e.,  '/mnt/public/gw/RecLLM/dataset/'
  
 
 ### 4. Train and test our proposed deep model.
-- Run ```python custom_trainer.py``` from the root directory.
+- Run ```python run_custrainer.py``` from the root directory.
 
 
 ## BibTex Citation
