@@ -74,13 +74,14 @@ class CustomizedSeqDataset(SequentialDataset):
             if last_uid != uid:
                 last_uid = uid
                 seq_start = i
+                fixed_seq_start = i
             else:
                 if i - seq_start > max_item_list_len:
                     seq_start += 1
                 uid_list.append(uid)
                 item_list_index.append(slice(seq_start, i))
                 target_index.append(i)
-                target_list_index.append(slice(i, min(i + self.config['k'] , seq_start+uid_count_dict[uid] -2))) # -2 is for avoid exposing the eval and test data.
+                target_list_index.append(slice(i, min(i + self.config['k'] , fixed_seq_start+uid_count_dict[uid] -2))) # -2 is for avoid exposing the eval and test data.
                 item_list_length.append(i - seq_start)
 
         item_list_index = np.array(item_list_index)
