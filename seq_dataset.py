@@ -98,13 +98,25 @@ class CustomizedSeqDataset(SequentialDataset):
 
         ## for target_list_index
         new_dict['target_id_list'] = torch.zeros(
-            (len(target_list_index), self.config['k']), dtype=int
+            (len(target_list_index), self.config['k']),
+            dtype=self.inter_feat[self.iid_field].dtype
         )
-        value = self.inter_feat[self.iid_field]
+        new_dict['target_rating_list'] = torch.zeros(
+            (len(target_list_index), self.config['k']),
+            dtype=self.inter_feat[self.rating_field].dtype
+        )
+
+        item_value = self.inter_feat[self.iid_field]
+        rating_value = self.inter_feat[self.rating_field]
+
         for i, index in enumerate(target_list_index):
-            item_temp =  value[index]
+            # Target item IDs
+            item_temp = item_value[index]
             new_dict['target_id_list'][i][:len(item_temp)] = item_temp
 
+            # Target ratings
+            rating_temp = rating_value[index]
+            new_dict['target_rating_list'][i][:len(rating_temp)] = rating_temp
 
         for field in self.inter_feat:
             if field != self.uid_field:
