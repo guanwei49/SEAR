@@ -12,6 +12,7 @@ from recbole.utils import FeatureType,set_color
 class CustomizedSeqDataset(SequentialDataset):
     def __init__(self, config):
         super().__init__(config)
+        self.rating_field = self.config["RATING_FIELD"]
 
     def _fill_nan(self):
         """Missing value imputation.
